@@ -4,6 +4,8 @@ A simple (perhaps for now)  windows C++ library that uses pipes to create commun
 + RxPipeComm - creates/opens a pipe to establish a receive communicationline (i.e. client)
 + IMessage - message container that must be inherited for any messages that need to be transferred via RxPipeComm and TxPipeComm
 
+TxPipeComm and RxPipeComm each have two threads going on, the main thread where the user can command Start/Stop/Reset and a child thread that reads to or writes from a pipe. All of these are hidden from the user. 
+
 NOTE: This is a mock-up code. NOT FULLY TESTED. Feel free to use it as you please but you've been warned. 
 
 The way I use it:
