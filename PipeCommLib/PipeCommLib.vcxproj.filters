@@ -24,10 +24,10 @@
     <ClInclude Include="APipeComm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TxPipeComm.h">
+    <ClInclude Include="PipeComm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PipeComm.h">
+    <ClInclude Include="CPipeComm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -42,6 +42,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RxPipeComm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPipeComm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -20,7 +20,7 @@ protected:
 	BOOL mIsRunning;			// indicates if the main loop is running
 	CRITICAL_SECTION mLockMech;
 
-	std::shared_ptr<IMessage> pMsg;  // message to be sent out (buffer)
+	IMessage * pMsg;  // message to be sent out (buffer)
 
 	const std::string CLOSE = "close";
 
@@ -43,7 +43,7 @@ protected:
 
 	APipeComm(DWORD mode,
 			std::string uniqueName,
-			std::shared_ptr<IMessage> msg, 
+			IMessage * msg, 
 			size_t bufLen);
 public:
 	virtual ~APipeComm();

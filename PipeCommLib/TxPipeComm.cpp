@@ -14,16 +14,16 @@ class TxPipeComm::ImplTxPipeComm
 {
 public:
 	ImplTxPipeComm(string name
-		, shared_ptr<IMessage> msg
+		, IMessage* msg
 		, size_t bufLen);
 	~ImplTxPipeComm();
 
 	void Action();
-	void Send(shared_ptr<IMessage> msg);
+	void Send(IMessage* msg);
 };
 
 TxPipeComm::ImplTxPipeComm::ImplTxPipeComm(
-	string name, shared_ptr<IMessage> msg, size_t bufLen)
+	string name, IMessage* msg, size_t bufLen)
 	: APipeComm(PIPE_ACCESS_OUTBOUND,name, msg, bufLen)
 {
 }
@@ -54,7 +54,7 @@ void TxPipeComm::ImplTxPipeComm::Action()
 	}
 }
 
-void TxPipeComm::ImplTxPipeComm::Send(shared_ptr<IMessage> msg)
+void TxPipeComm::ImplTxPipeComm::Send(IMessage* msg)
 {
 	EnterCriticalSection(&mLockMech);
 	pMsg = msg;
@@ -66,7 +66,7 @@ void TxPipeComm::ImplTxPipeComm::Send(shared_ptr<IMessage> msg)
 //**************************************************************
 
 TxPipeComm::TxPipeComm(std::string name
-	, shared_ptr<IMessage> msg
+	, IMessage* msg
 	, size_t bufLen)
 {
 	pImpl = shared_ptr<ImplTxPipeComm>(
@@ -80,7 +80,7 @@ TxPipeComm::~TxPipeComm()
 	pImpl.reset();
 }
 
-void TxPipeComm::Send(std::shared_ptr<IMessage> msg)
+void TxPipeComm::Send(IMessage* msg)
 {
 	pImpl->Send(msg);
 }
@@ -100,3 +100,7 @@ void TxPipeComm::Reset()
 	pImpl->Reset();
 }
 
+BOOL TxPipeComm::IsRunning()
+{
+	return pImpl->IsRunning();
+}

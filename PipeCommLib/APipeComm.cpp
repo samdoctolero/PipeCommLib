@@ -87,7 +87,7 @@ void APipeComm::Loop()
 	{
 		Action();
 		// May even be alright to remove this
-		Sleep(1);
+		//Sleep(1);
 	}
 
 	DisconnectNamedPipe(pPipe);
@@ -95,7 +95,7 @@ void APipeComm::Loop()
 
 APipeComm::APipeComm(DWORD mode,
 	std::string uniqueName,
-	std::shared_ptr<IMessage> msg,
+	IMessage * msg,
 	size_t bufLen)
 {
 	mMode = mode;
@@ -111,7 +111,7 @@ APipeComm::APipeComm(DWORD mode,
 APipeComm::~APipeComm()
 {
 	mIsRunning = FALSE;
-	pMsg.reset();
+	//pMsg.reset();
 	// TO DO: clear all handles
 	if (pThreadHandle != INVALID_HANDLE_VALUE)
 		CloseHandle(pThreadHandle);

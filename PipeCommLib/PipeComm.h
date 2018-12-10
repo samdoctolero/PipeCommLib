@@ -9,7 +9,8 @@
 // Description:	A interface for container messages. 
 //				Messages that need to be transferred
 //				must inherit this class and create the
-//				abstract methods. 
+//				abstract methods. Note: Make sure that
+//				the member variables are thread-safe
 //*********************************************************
 class IMessage
 {
@@ -22,6 +23,7 @@ public:
 	// format.
 	virtual void ToStruct(std::string str) = 0;
 };
+
 
 //*********************************************************
 // RxPipeComm
@@ -37,12 +39,12 @@ private:
 	std::shared_ptr<ImplRxPipeComm> pImpl;
 public:
 	RxPipeComm(std::string name,
-		std::shared_ptr<IMessage> msg,
+		IMessage* msg,
 		size_t bufLen = 255);
 	~RxPipeComm();
 
 	// retreive the latest message
-	std::shared_ptr<IMessage> Get();
+	IMessage* Get();
 
 	// starts the pipe connection
 	void Start();
@@ -50,10 +52,12 @@ public:
 	void Stop();
 	// stops then starts the pipe connection
 	void Reset();
+	
+	BOOL IsRunning();
 };
 
 //*********************************************************
-// RxPipeComm
+// TxPipeComm
 // Description: Creates/opens a pipe to transmit messages
 //				to a client (RxPipeComm).
 //*********************************************************
@@ -66,12 +70,12 @@ private:
 	std::shared_ptr<ImplTxPipeComm> pImpl;
 public:
 	TxPipeComm(std::string name,
-		std::shared_ptr<IMessage> msg,
+		IMessage* msg,
 		size_t bufLen = 255);
 	~TxPipeComm();
 
 	// changes the stored buffer to the new message
-	void Send(std::shared_ptr<IMessage> msg);
+	void Send(IMessage* msg);
 
 	// starts the pipe connection
 	void Start();
@@ -79,4 +83,6 @@ public:
 	void Stop();
 	// stops then starts the pipe connection
 	void Reset();
+
+	BOOL IsRunning();
 };

@@ -14,16 +14,16 @@ class RxPipeComm::ImplRxPipeComm
 {
 public:
 	ImplRxPipeComm(string name
-		, shared_ptr<IMessage> msg
+		, IMessage* msg
 		, size_t bufLen);
 	~ImplRxPipeComm();
 
 	void Action();
-	shared_ptr<IMessage> Get();
+	IMessage* Get();
 };
 
 RxPipeComm::ImplRxPipeComm::ImplRxPipeComm(string name
-	, shared_ptr<IMessage> msg, size_t bufLen)
+	, IMessage* msg, size_t bufLen)
 	: APipeComm(PIPE_ACCESS_INBOUND, name, msg, bufLen)
 {
 }
@@ -62,7 +62,7 @@ void RxPipeComm::ImplRxPipeComm::Action()
 	delete buff;
 }
 
-shared_ptr<IMessage> RxPipeComm::ImplRxPipeComm::Get()
+IMessage* RxPipeComm::ImplRxPipeComm::Get()
 {
 	return pMsg;
 }
@@ -73,7 +73,7 @@ shared_ptr<IMessage> RxPipeComm::ImplRxPipeComm::Get()
 //****************************************************************
 
 RxPipeComm::RxPipeComm(std::string name, 
-	std::shared_ptr<IMessage> msg, 
+	IMessage* msg, 
 	size_t bufLen)
 {
 	pImpl = shared_ptr<ImplRxPipeComm>(
@@ -84,7 +84,7 @@ RxPipeComm::~RxPipeComm()
 {
 }
 
-std::shared_ptr<IMessage> RxPipeComm::Get()
+IMessage* RxPipeComm::Get()
 {
 	return pImpl->Get();
 }
@@ -102,4 +102,9 @@ void RxPipeComm::Stop()
 void RxPipeComm::Reset()
 {
 	pImpl->Reset();
+}
+
+BOOL RxPipeComm::IsRunning()
+{
+	return pImpl->IsRunning();
 }
