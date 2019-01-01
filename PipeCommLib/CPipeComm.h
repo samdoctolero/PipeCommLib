@@ -1,17 +1,18 @@
 #pragma once
-#include <string>
 
+#ifdef __cpusplus
 extern "C"
 {
+#endif
 	//*********************************************************
 	// TxPipeComm
 	//*********************************************************
 	// TxPipeComm struct
 	struct TxPipeComm;
-	typedef TxPipeComm TxPipeComm;
+	typedef struct TxPipeComm TxPipeComm;
 
 	// TxPipeComm constructor/destructor
-	TxPipeComm* CreateCTxPipeComm(std::string name, void* msg);
+	TxPipeComm* CreateCTxPipeComm(char* name, void* msg);
 	void DestroyCTxPipeComm(TxPipeComm* ptr);
 
 	// TxPipeComm methods
@@ -26,10 +27,10 @@ extern "C"
 	//*********************************************************
 	// RxPipeComm struct
 	struct RxPipeComm;
-	typedef RxPipeComm RxPipeComm;
+	typedef struct RxPipeComm RxPipeComm;
 
 	// RxPipeComm constructor/destructor
-	RxPipeComm* CreateCRxPipeComm(std::string name, void* msg);
+	RxPipeComm* CreateCRxPipeComm(char* name, void* msg);
 	void DestroyCRxPipeComm(RxPipeComm* ptr);
 
 	// RxPipeComm methods
@@ -38,4 +39,7 @@ extern "C"
 	void StopRx(RxPipeComm* ptr);
 	void ResetRx(RxPipeComm* ptr);
 	int IsRunningRx(RxPipeComm* ptr);
+
+#ifdef __cpusplus
 }
+#endif

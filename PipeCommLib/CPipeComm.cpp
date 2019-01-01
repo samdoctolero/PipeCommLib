@@ -2,9 +2,10 @@
 #include "CPipeComm.h"
 #include "PipeComm.h"
 
-TxPipeComm* CreateCTxPipeComm(std::string name, void* msg)
+TxPipeComm* CreateCTxPipeComm(char* name, void* msg)
 {
-	return new TxPipeComm(name, (IMessage*)msg);
+	std::string strName = name;
+	return new TxPipeComm(strName, (IMessage*)msg);
 }
 
 void DestroyCTxPipeComm(TxPipeComm* ptr)
@@ -37,9 +38,10 @@ int IsRunningTx(TxPipeComm* ptr)
 	return ptr->IsRunning();
 }
 
-RxPipeComm* CreateCRxPipeComm(std::string name, void* msg)
+RxPipeComm* CreateCRxPipeComm(char* name, void* msg)
 {
-	return new RxPipeComm(name, (IMessage*)msg);
+	std::string strName = name;
+	return new RxPipeComm(strName, (IMessage*)msg);
 }
 
 void DestroyCRxPipeComm(RxPipeComm* ptr)
