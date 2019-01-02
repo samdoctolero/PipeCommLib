@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef __cpusplus
+#ifdef __cplusplus
 extern "C"
 {
 #endif
@@ -40,6 +40,6 @@ extern "C"
 	void ResetRx(RxPipeComm * ptr);
 	int IsRunningRx(RxPipeComm * ptr);
 
-#ifdef __cpusplus
+#ifdef __cplusplus
 }
 #endif
