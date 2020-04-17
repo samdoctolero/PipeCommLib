@@ -3,8 +3,6 @@
 ################################################################################
 
 /.vs/PipeCommLib/v15
-/PipeCommLib/.vs/PipeCommLib/v15
-/PipeCommLib/Debug
-/PipeCommLib/x64/Release
-/PipeCommLib/Release/PipeCommLib.tlog
-/PipeCommLib/Release
+/PipeCommLib/.vs/
+/PipeCommLib/bin/
+/PipeCommLib/obj/
