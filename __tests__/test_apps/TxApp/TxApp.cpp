@@ -5,20 +5,15 @@
 // string message to be sent
 int main(int argc, char** argv)
 {
-	if (argc != 1) {
-		// Invalid number of args
-		return -1;
-	}
-
 	TxPipeComm* TxAppPipe =
 		new TxPipeComm("RxAppPipe", new StringMessage());
 	TxAppPipe->Start();
 
-	Sleep(1000);
-	// Send the message specified in argv
-	TxAppPipe->Send(new StringMessage(argv[0]));
+	Sleep(2000); // Wait for the receiver to initialize
 
-	Sleep(3000);
+	TxAppPipe->Send(new StringMessage(argv[1]));
+
+	Sleep(20000); // Stay up for the receiver to listen
 
 	return 0;
 }

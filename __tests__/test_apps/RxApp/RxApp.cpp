@@ -1,25 +1,29 @@
 #include "PipeComm.h"
 #include "StringMessage.h"
+#include <chrono>
 
 // The argument would be the message expected
 int main(int argc, char** argv)
 {
-	if (argc != 1) {
-		// Invalid number of args
-		return -1;
-	}
-
 	RxPipeComm* RxAppPipe =
 		new RxPipeComm("RxAppPipe", new StringMessage());
 	RxAppPipe->Start();
 
-	Sleep(2000);
-	IMessage* msg = RxAppPipe->Get();
+	// Continiuously get the message for 5 seconds or when
+	// the toString value matches the passed argument
+	auto start = std::chrono::steady_clock::now();
+	std::chrono::duration<double> elapsed_seconds;
+	do
+	{
+		if (RxAppPipe->Get()->ToString() == argv[1]) {
+			RxAppPipe->Stop();
+			return 0;
+		}
 
-	// Return non-zero if msg doesn't match the argument
-	if (msg->ToString() != argv[0]) {
-		return -1;
+		elapsed_seconds =
+			std::chrono::steady_clock::now() - start;
 	}
+	while (elapsed_seconds.count() >= 15);
 
-	return 0;
+	return -1;
 }
