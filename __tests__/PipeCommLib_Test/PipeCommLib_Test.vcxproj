@@ -97,9 +97,15 @@
       <Command>IF exist $(OutDir) (
 cd $(OutDir)
 del PipeCommLib.lib
+del RxApp.exe
+del TxApp.exe
 )
 cd $(SolutionDir)bin\$(Platform)\$(Configuration)
-xcopy PipeCommLib.lib $(OutDir)</Command>
+xcopy PipeCommLib.lib $(OutDir)
+cd $(SolutionDir)..\__tests__\test_apps\RxApp\bin\$(Platform)\$(Configuration)
+xcopy RxApp.exe $(OutDir)
+cd $(SolutionDir)..\__tests__\test_apps\TxApp\bin\$(Platform)\$(Configuration)
+xcopy TxApp.exe $(OutDir)</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -123,9 +129,15 @@ xcopy PipeCommLib.lib $(OutDir)</Command>
       <Command>IF exist $(OutDir) (
 cd $(OutDir)
 del PipeCommLib.lib
+del RxApp.exe
+del TxApp.exe
 )
 cd $(SolutionDir)bin\$(Platform)\$(Configuration)
-xcopy PipeCommLib.lib $(OutDir)</Command>
+xcopy PipeCommLib.lib $(OutDir)
+cd $(SolutionDir)..\__tests__\test_apps\RxApp\bin\$(Platform)\$(Configuration)
+xcopy RxApp.exe $(OutDir)
+cd $(SolutionDir)..\__tests__\test_apps\TxApp\bin\$(Platform)\$(Configuration)
+xcopy TxApp.exe $(OutDir)</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -150,9 +162,15 @@ xcopy PipeCommLib.lib $(OutDir)</Command>
       <Command>IF exist $(OutDir) (
 cd $(OutDir)
 del PipeCommLib.lib
+del RxApp.exe
+del TxApp.exe
 )
 cd $(SolutionDir)bin\$(Platform)\$(Configuration)
-xcopy PipeCommLib.lib $(OutDir)</Command>
+xcopy PipeCommLib.lib $(OutDir)
+cd $(SolutionDir)..\__tests__\test_apps\RxApp\bin\$(Platform)\$(Configuration)
+xcopy RxApp.exe $(OutDir)
+cd $(SolutionDir)..\__tests__\test_apps\TxApp\bin\$(Platform)\$(Configuration)
+xcopy TxApp.exe $(OutDir)</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -177,9 +195,15 @@ xcopy PipeCommLib.lib $(OutDir)</Command>
       <Command>IF exist $(OutDir) (
 cd $(OutDir)
 del PipeCommLib.lib
+del RxApp.exe
+del TxApp.exe
 )
 cd $(SolutionDir)bin\$(Platform)\$(Configuration)
-xcopy PipeCommLib.lib $(OutDir)</Command>
+xcopy PipeCommLib.lib $(OutDir)
+cd $(SolutionDir)..\__tests__\test_apps\RxApp\bin\$(Platform)\$(Configuration)
+xcopy RxApp.exe $(OutDir)
+cd $(SolutionDir)..\__tests__\test_apps\TxApp\bin\$(Platform)\$(Configuration)
+xcopy TxApp.exe $(OutDir)</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

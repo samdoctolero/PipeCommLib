@@ -2,10 +2,17 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/PipeCommLib/v15
+/.vs/
 /PipeCommLib/.vs/
 /PipeCommLib/bin/
 /PipeCommLib/obj/
 /__tests__/PipeCommLib_Test/.vs/
 /__tests__/PipeCommLib_Test/bin/
 /__tests__/PipeCommLib_Test/obj/
+
+/__tests__/test_apps/TxApp/bin/
+/__tests__/test_apps/TxApp/obj/
+/__tests__/test_apps/RxApp/bin/
+/__tests__/test_apps/RxApp/obj/
+/__tests__/common/StringMessage/bin/
+/__tests__/common/StringMessage/obj/
