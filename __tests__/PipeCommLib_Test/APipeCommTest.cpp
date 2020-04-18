@@ -3,12 +3,10 @@
 
 class APipeCommTest : public ::testing::Test {
 protected:
-	IMessage* msg;
 	MyPipeComm* pipe;
 	void SetUp() {
-		this->msg = new DummyMessage();
 		// Create pipe instance
-		pipe = new MyPipeComm("myPipe", msg);
+		pipe = new MyPipeComm("myPipe", new DummyMessage());
 		pipe->Start();
 	}
 };
