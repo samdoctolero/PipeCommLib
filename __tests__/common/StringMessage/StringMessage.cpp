@@ -8,4 +8,6 @@ std::string StringMessage::ToString() {
 	return this->value;
 }
 
-void StringMessage::ToStruct(std::string str) {}
+void StringMessage::ToStruct(std::string str) {
+	this->value = str;
+}
