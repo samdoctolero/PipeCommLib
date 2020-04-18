@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PipeCommLib", "PipeCommLib.vcxproj", "{A8F2969A-79AF-41EF-A997-84A57C47A15F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PipeCommLib_Test", "..\__tests__\PipeCommLib_Test\PipeCommLib_Test.vcxproj", "{B9EB6840-C08D-4CB7-A711-8D2B911350DB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A8F2969A-79AF-41EF-A997-84A57C47A15F} = {A8F2969A-79AF-41EF-A997-84A57C47A15F}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,14 @@ Global
 		{A8F2969A-79AF-41EF-A997-84A57C47A15F}.Release|x64.Build.0 = Release|x64
 		{A8F2969A-79AF-41EF-A997-84A57C47A15F}.Release|x86.ActiveCfg = Release|Win32
 		{A8F2969A-79AF-41EF-A997-84A57C47A15F}.Release|x86.Build.0 = Release|Win32
+		{B9EB6840-C08D-4CB7-A711-8D2B911350DB}.Debug|x64.ActiveCfg = Debug|x64
+		{B9EB6840-C08D-4CB7-A711-8D2B911350DB}.Debug|x64.Build.0 = Debug|x64
+		{B9EB6840-C08D-4CB7-A711-8D2B911350DB}.Debug|x86.ActiveCfg = Debug|Win32
+		{B9EB6840-C08D-4CB7-A711-8D2B911350DB}.Debug|x86.Build.0 = Debug|Win32
+		{B9EB6840-C08D-4CB7-A711-8D2B911350DB}.Release|x64.ActiveCfg = Release|x64
+		{B9EB6840-C08D-4CB7-A711-8D2B911350DB}.Release|x64.Build.0 = Release|x64
+		{B9EB6840-C08D-4CB7-A711-8D2B911350DB}.Release|x86.ActiveCfg = Release|Win32
+		{B9EB6840-C08D-4CB7-A711-8D2B911350DB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

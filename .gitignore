@@ -6,3 +6,6 @@
 /PipeCommLib/.vs/
 /PipeCommLib/bin/
 /PipeCommLib/obj/
+/__tests__/PipeCommLib_Test/.vs/
+/__tests__/PipeCommLib_Test/bin/
+/__tests__/PipeCommLib_Test/obj/
